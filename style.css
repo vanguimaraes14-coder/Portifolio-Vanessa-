@@ -202,16 +202,13 @@ align-items:center;
 }
 
 }
-img {
-  max-width: 100%;
-  border-radius: 10px;
+.logo {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
-.card {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: 0.3s;
-}
-
-.card:hover {
+.logo:hover {
   transform: scale(1.05);
+  transition: 0.3s;
 }
