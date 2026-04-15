@@ -1,84 +1,54 @@
-// efeito digitando
+// EFEITO DIGITANDO
+const texto = "Desenvolvedora Front-End";
+let index = 0;
 
-const texto = [
-"Desenvolvedora Front-End",
-"Estudante de Sistemas para Internet",
-];
-
-let contador = 0;
-let letra = 0;
-
-function digitar(){
-
-if(letra < texto[contador].length){
-
-document.querySelector(".digitando").innerHTML += texto[contador].charAt(letra);
-
-letra++;
-
-setTimeout(digitar,80);
-
-}else{
-
-setTimeout(apagar,2000);
-
+function escrever(){
+  if(index < texto.length){
+    document.querySelector(".digitando").innerHTML += texto.charAt(index);
+    index++;
+    setTimeout(escrever, 100);
+  }
 }
 
-}
-
-function apagar(){
-
-if(letra > 0){
-
-document.querySelector(".digitando").innerHTML = texto[contador].substring(0,letra-1);
-
-letra--;
-
-setTimeout(apagar,50);
-
-}else{
-
-contador++;
-
-if(contador >= texto.length){
-contador = 0;
-}
-
-setTimeout(digitar,500);
-
-}
-
-}
-
-digitar();
+escrever();
 
 
-// projetos dinâmicos
-
+// PROJETOS DINÂMICOS
 const projetos = [
 
+{
+nome: "Site de Carros",
+descricao: "Projeto de site de vendas de carros com layout moderno.",
+link: "#"
+},
 
 {
-nome:"Portfólio Profissional",
-descricao:"Meu portfólio como desenvolvedora web."
+nome: "Portfólio Pessoal",
+descricao: "Meu portfólio profissional com HTML, CSS e JavaScript.",
+link: "#"
+},
+
+{
+nome: "Projeto Cultural",
+descricao: "Projeto Raízes do Sertão com foco cultural.",
+link: "#"
 }
-];
 
-const container = document.getElementById("projetos-container");
+]
 
-projetos.forEach(p=>{
+const container = document.getElementById("lista-projetos")
 
-const card = document.createElement("div");
+projetos.forEach(projeto => {
 
-card.classList.add("card");
+const div = document.createElement("div")
+div.classList.add("projeto")
 
-card.innerHTML=`
+div.innerHTML = `
+<h3>${projeto.nome}</h3>
+<p>${projeto.descricao}</p>
+<a href="${projeto.link}" target="_blank">Ver Projeto</a>
+`
 
-<h3>${p.nome}</h3>
-<p>${p.descricao}</p>
+container.appendChild(div)
 
-`;
-
-container.appendChild(card);
-
-});
+})
