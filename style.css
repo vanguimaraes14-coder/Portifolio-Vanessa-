@@ -202,3 +202,16 @@ align-items:center;
 }
 
 }
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
